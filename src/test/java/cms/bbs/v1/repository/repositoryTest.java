@@ -43,7 +43,7 @@ class MemoRepositoryTest {
     @Test
     public void 단건조회_테스트(){
 
-        Long mno = 100L;
+        Long mno = 70L;
 
         Optional<Memo> result = memoRepository.findById(mno);
         System.out.println("==================================");
@@ -56,7 +56,7 @@ class MemoRepositoryTest {
 
     @Test
     public void 수정작업_테스트(){
-        Memo memo = Memo.builder().mno(100L).memoText("Update Text").build();
+        Memo memo = Memo.builder().mno(70L).memoText("Update Text").build();
         System.out.println(memoRepository.save(memo));
 
     }
@@ -108,7 +108,7 @@ class MemoRepositoryTest {
 
     @Test
     public void testQueryMethodWithPagable(){
-        Pageable pageable = PageRequest.of(0,10, Sort.by("mno").descending());
+        Pageable pageable = PageRequest.of(2,10, Sort.by("mno").descending());
         Page<Memo> result = memoRepository.findByMnoBetween(10L, 50L, pageable);
         result.get().forEach(memo -> System.out.println(memo));
     }
