@@ -42,4 +42,14 @@ public class sampleController {
 
     }
 
+    @GetMapping("/exLayout1")
+    public void exLayout1(){
+
+        log.info("exLayout...............................");
+
+
+    }
+
+
+
 }
