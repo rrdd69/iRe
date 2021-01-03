@@ -1,6 +1,8 @@
 package cms.bbs.v1.service;
 
 import cms.bbs.v1.dto.GuestbookDTO;
+import cms.bbs.v1.dto.PageRequestDTO;
+import cms.bbs.v1.dto.PageResultDTO;
 import cms.bbs.v1.entity.Guestbook;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,17 @@ class GuestbookServiceImplTest {
                 .build();
 
         System.out.println("service = " + service.register(guestbookDTO));
+    }
+
+    @Test
+    public void testList(){
+
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder().page(1).size(10).build();
+        PageResultDTO<GuestbookDTO, Guestbook> resultDTO = service.getLsit(pageRequestDTO);
+
+        for(GuestbookDTO guestbookDTO : resultDTO.getDoList()){
+            System.out.println("guestbookDTO = " + guestbookDTO);
+        }
     }
 
 }
