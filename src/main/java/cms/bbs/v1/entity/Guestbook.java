@@ -34,4 +34,6 @@ public class Guestbook  extends BaseEntity{
         this.content = content;;
     }
 
+
+
 }

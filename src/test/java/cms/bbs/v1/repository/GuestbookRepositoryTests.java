@@ -1,5 +1,8 @@
 package cms.bbs.v1.repository;
 
+import cms.bbs.v1.dto.GuestbookDTO;
+import cms.bbs.v1.dto.PageRequestDTO;
+import cms.bbs.v1.dto.PageResultDTO;
 import cms.bbs.v1.entity.Guestbook;
 import cms.bbs.v1.entity.QGuestbook;
 import com.querydsl.core.BooleanBuilder;
@@ -103,11 +106,7 @@ public class GuestbookRepositoryTests {
             System.out.println("guestbook = " + guestbook);
         });
 
-
-
-
     }
-
 
 
 
