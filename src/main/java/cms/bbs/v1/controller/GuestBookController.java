@@ -27,6 +27,5 @@ public class GuestBookController {
     public void list(PageRequestDTO pageRequestDTO, Model model){
         log.info("#############################"+pageRequestDTO);
         model.addAttribute("result", service.getLsit(pageRequestDTO));
-
     }
 }
