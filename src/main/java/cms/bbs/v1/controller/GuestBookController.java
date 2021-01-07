@@ -9,9 +9,12 @@ import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.jws.WebParam;
 
 @Controller
 @RequestMapping("/guestbook")
@@ -26,17 +29,26 @@ public class GuestBookController {
         return "redirect:/guestbook/list";
     }
 
+    /*
+    * 리스트 출력
+    * */
     @GetMapping({"/list"})
     public void list(PageRequestDTO pageRequestDTO, Model model){
         log.info("#############################"+pageRequestDTO);
         model.addAttribute("result", service.getLsit(pageRequestDTO));
     }
 
+    /**
+     * 데이터 등록
+     */
     @GetMapping("/register")
     public void register(){
         log.info("register get...");
     }
 
+    /*
+    * 실제 등록
+    * */
     @PostMapping("/register")
     public String registerPost(GuestbookDTO dto, RedirectAttributes redirectAttributes){
         log.info("dto..."+ dto);
@@ -49,6 +61,10 @@ public class GuestBookController {
     }
 
 
-
-
+    @GetMapping("/read")
+    public void read(long gno, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, Model model){
+        log.info("gno" + gno);
+        GuestbookDTO dto = service.read(gno);
+        model.addAttribute("dto",dto);
+    }
 }

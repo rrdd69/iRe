@@ -12,8 +12,12 @@ public interface GuestbookService {
 
     PageResultDTO<GuestbookDTO, Guestbook> getLsit(PageRequestDTO requestDTO);
 
+    GuestbookDTO read(Long gno);
 
-    default Guestbook dtoToEntity(GuestbookDTO dto){ //DTO --> ENTITY
+    /**
+    * DTO --> ENTITY
+    * */
+    default Guestbook dtoToEntity(GuestbookDTO dto){
         Guestbook entity = Guestbook.builder()
                 .gno(dto.getGno())
                 .title(dto.getTitle())
@@ -24,14 +28,18 @@ public interface GuestbookService {
         return entity;
     }
 
-    default GuestbookDTO EntityToDto(Guestbook entity){ //ENTITY --> DTO
+    /**
+     * ENTITY --> DTO
+     * @return
+     */
+    default GuestbookDTO EntityToDto(Guestbook entity){
         GuestbookDTO dto = GuestbookDTO.builder()
                 .gno(entity.getGno())
                 .title(entity.getTitle())
                 .content(entity.getContent())
                 .writer(entity.getWriter())
                 .regDate(entity.getRegDate())
-                .moddate(entity.getModDate())
+                .modDate(entity.getModDate())
                 .build();
 
         return dto;
