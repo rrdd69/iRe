@@ -60,8 +60,10 @@ public class GuestBookController {
         return "redirect:/guestbook/list";
     }
 
-
-    @GetMapping("/read")
+    /**
+     * 데이터 단건 조회, 단건 수정
+     */
+    @GetMapping({"/read","/modify"})
     public void read(long gno, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, Model model){
         log.info("gno" + gno);
         GuestbookDTO dto = service.read(gno);
