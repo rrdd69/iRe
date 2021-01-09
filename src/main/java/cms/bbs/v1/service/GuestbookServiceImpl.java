@@ -71,7 +71,6 @@ public class GuestbookServiceImpl implements GuestbookService {
 
     @Override
     public void modify(GuestbookDTO dto) {
-        // 업데이트 가능 학목은 '제목', '내용'
 
         Optional<Guestbook> result = repository.findById(dto.getGno());
         if(result.isPresent()){

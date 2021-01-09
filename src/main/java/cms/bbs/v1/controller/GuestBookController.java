@@ -93,9 +93,6 @@ public class GuestBookController {
 
     }
 
-
-
-
     /*
     * 게시물 삭제
     * */

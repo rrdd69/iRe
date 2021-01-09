@@ -47,8 +47,8 @@ public class GuestbookRepositoryTests {
 
         if(result.isPresent()){
             Guestbook guestbook = result.get();
-            guestbook.changeTitle("Changed Title....");
-            guestbook.changeContent("Change Content");
+            guestbook.changeTitle("Changed Title!!!");
+            guestbook.changeContent("Change Content!!!");
             guestbookRepository.save(guestbook);
         }
 
