@@ -20,6 +20,7 @@ public interface GuestbookService {
 
     /**
     * DTO --> ENTITY
+     * @return ENTITY
     * */
     default Guestbook dtoToEntity(GuestbookDTO dto){
         Guestbook entity = Guestbook.builder()
@@ -34,7 +35,7 @@ public interface GuestbookService {
 
     /**
      * ENTITY --> DTO
-     * @return
+     * @return DTO
      */
     default GuestbookDTO EntityToDto(Guestbook entity){
         GuestbookDTO dto = GuestbookDTO.builder()

@@ -13,10 +13,16 @@ import org.springframework.data.domain.Sort;
 @Data
 public class PageRequestDTO {
 
+    /*현재 페이지*/
     private int page;
+
+    /*한번에 보여질 ROW 갯수*/
     private int size;
 
+    /*검색 타입 */
     private String type;
+
+    /*검색어*/
     private String keyword;
 
     public PageRequestDTO(){

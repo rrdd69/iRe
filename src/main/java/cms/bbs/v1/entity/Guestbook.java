@@ -34,6 +34,10 @@ public class Guestbook  extends BaseEntity{
         this.content = content;;
     }
 
+    public void changeGno(Long gno){
+        this.gno = gno;
+    }
+
 
 
 }

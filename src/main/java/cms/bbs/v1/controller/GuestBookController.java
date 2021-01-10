@@ -31,7 +31,7 @@ public class GuestBookController {
     }
 
     /*
-    * 리스트 출력
+    * 리스트 페이지 이동
     * */
     @GetMapping({"/list"})
     public void list(PageRequestDTO pageRequestDTO, Model model){
@@ -40,7 +40,7 @@ public class GuestBookController {
     }
 
     /**
-     * 데이터 등록
+     * 데이터 등록 페이지 이
      */
     @GetMapping("/register")
     public void register(){
@@ -84,10 +84,10 @@ public class GuestBookController {
 
         service.modify(dto);
 
-        redirectAttributes.addAttribute("page", requestDTO.getPage());
-        redirectAttributes.addAttribute("type", requestDTO.getType());
-        redirectAttributes.addAttribute("keyword", requestDTO.getKeyword());
-        redirectAttributes.addAttribute("gno", dto.getGno());
+       // redirectAttributes.addAttribute("page", requestDTO.getPage());
+       // redirectAttributes.addAttribute("type", requestDTO.getType());
+       // redirectAttributes.addAttribute("keyword", requestDTO.getKeyword());
+       //  redirectAttributes.addAttribute("gno", dto.getGno());
 
         return "redirect:/guestbook/read";
 

@@ -30,12 +30,14 @@ public class GuestbookRepositoryTests {
     public void insertDummies(){
 
         IntStream.rangeClosed(1,300).forEach(i ->{
+
             Guestbook guestbook = Guestbook.builder()
                 .title("Title..."+ i)
                 .writer("user"+(i%10))
                 .content("Content..."+i)
                 .build();
             System.out.println(guestbookRepository.save(guestbook));
+
         });
 
     }
@@ -52,12 +54,12 @@ public class GuestbookRepositoryTests {
             guestbookRepository.save(guestbook);
         }
 
-
     }
 
 
     @Test
     public void testSearchQuery(){
+
         Pageable pageable = PageRequest.of(0,10, Sort.by("gno").descending());
 
         QGuestbook qGuestbook = QGuestbook.guestbook;

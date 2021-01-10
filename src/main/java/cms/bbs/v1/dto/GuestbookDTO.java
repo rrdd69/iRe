@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Setter //No 권장
+@Setter
 public class GuestbookDTO {
 
     private Long gno;
