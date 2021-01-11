@@ -5,7 +5,9 @@ import cms.bbs.v1.entity.Member;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -31,6 +33,7 @@ public class BoardRepositoryTests {
         });
     }
 
+    @Transactional
     @Test
     public void testRead1(){
 
@@ -40,6 +43,19 @@ public class BoardRepositoryTests {
 
         System.out.println("board = " + board);
         System.out.println("board.getWriter() = " + board.getWriter());
+    }
+
+
+    @Test
+    public void testReadithWriter(){
+
+        Object result = boardRepository.getBoardWithWriter(100L);
+
+        Object [] arr = (Object[])result;
+
+        System.out.println("---------------------------------------------------");
+        System.out.println(Arrays.toString(arr));
+
     }
 
 

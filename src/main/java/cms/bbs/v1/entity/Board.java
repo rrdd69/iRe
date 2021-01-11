@@ -21,6 +21,7 @@ public class Board extends BaseEntity{
 
     private String content;
 
+    @ManyToOne(fetch = FetchType.LAZY)  //명시적으로 lazy 로딩 지정
     private Member writer; //연관관계 설정
 
 }
