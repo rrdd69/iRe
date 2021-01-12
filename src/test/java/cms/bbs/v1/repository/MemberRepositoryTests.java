@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.expression.spel.ast.OpInc;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.stream.IntStream;
@@ -31,6 +32,21 @@ public class MemberRepositoryTests {
 
         });
 
+    }
+
+    @Transactional
+    @Test
+    public void testMember1(){
+
+        Optional<Member> result = memberRepository.findByEmail("user21@aaa.com");
+
+        Member member = result.get();
+
+        System.out.println("board = " + member);
+        for(Board board : member.getBoardList())
+        {
+            System.out.println("board = " + board);
+        }
     }
 
 }
