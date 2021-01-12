@@ -3,6 +3,8 @@ import lombok.*;
 
 import javax.jdo.annotations.Join;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Builder
@@ -21,8 +23,12 @@ public class Board extends BaseEntity{
 
     private String content;
 
-    @ManyToOne(fetch = FetchType.LAZY)  //명시적으로 lazy 로딩 지정
+    @ManyToOne(fetch = FetchType.EAGER)  //명시적으로 lazy 로딩 지정
     @JoinColumn(name = "writer_email")
     private Member writer; //연관관계 설정
+
+    @OneToMany(mappedBy = "board")
+    private List<Reply> replyList = new ArrayList<>();
+
 
 }

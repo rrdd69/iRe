@@ -2,6 +2,7 @@ package cms.bbs.v1.repository;
 
 import cms.bbs.v1.entity.Board;
 import cms.bbs.v1.entity.Member;
+import cms.bbs.v1.entity.Reply;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -38,7 +39,7 @@ public class MemberRepositoryTests {
     @Test
     public void testMember1(){
 
-        Optional<Member> result = memberRepository.findByEmail("user21@aaa.com");
+        Optional<Member> result = memberRepository.findByEmail("user71@aaa.com");
 
         Member member = result.get();
 
@@ -46,6 +47,12 @@ public class MemberRepositoryTests {
         for(Board board : member.getBoardList())
         {
             System.out.println("board = " + board);
+            for(Reply reply : board.getReplyList()){
+                System.out.println("###############");
+                System.out.println("reply = " + reply);
+                System.out.println("###############");
+            }
+
         }
     }
 

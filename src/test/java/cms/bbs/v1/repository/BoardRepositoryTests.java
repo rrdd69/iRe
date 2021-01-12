@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -55,6 +56,20 @@ public class BoardRepositoryTests {
 
         System.out.println("---------------------------------------------------");
         System.out.println(Arrays.toString(arr));
+
+    }
+
+    @Test
+    @Transactional
+    public void testGetBoardithReply(){
+
+        List<Object[]> result = boardRepository.getBoardWithReply(100L);
+
+        System.out.println("---------------------------------------------------");
+        for(Object[] arr : result){
+            System.out.println(Arrays.toString(arr));
+        }
+
 
     }
 

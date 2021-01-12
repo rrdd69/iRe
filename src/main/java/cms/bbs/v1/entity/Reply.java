@@ -4,6 +4,7 @@ package cms.bbs.v1.entity;
 import com.fasterxml.jackson.databind.ser.Serializers;
 import lombok.*;
 
+import javax.jdo.annotations.Join;
 import javax.persistence.*;
 
 @Entity
@@ -24,6 +25,7 @@ public class Reply extends BaseEntity {
     private String replyer;
 
     @ManyToOne
+    @JoinColumn(name = "board_bno")
     private Board board;
 
 }
