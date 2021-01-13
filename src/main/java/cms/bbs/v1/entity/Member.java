@@ -26,6 +26,6 @@ public class Member extends BaseEntity{
 
     private String name;
 
-    @OneToMany(mappedBy = "writer")
-    private List<Board> boardList = new ArrayList<>();
+    //@OneToMany(mappedBy = "writer")
+    //private List<Board> boardList = new ArrayList<>();
 }

@@ -44,6 +44,7 @@ public class MemberRepositoryTests {
         Member member = result.get();
 
         System.out.println("board = " + member);
+        /*
         for(Board board : member.getBoardList())
         {
             System.out.println("board = " + board);
@@ -54,6 +55,7 @@ public class MemberRepositoryTests {
             }
 
         }
+        */
     }
 
 }
